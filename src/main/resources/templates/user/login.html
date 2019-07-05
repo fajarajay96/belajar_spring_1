@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" th:href="@{/font-awesome-4.7.0/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/bootstrap-3.3.7/css/bootstrap.min.css}">
+    <script th:src="@{/jquery-1.12.4.min.js}"></script>
+    <script th:src="@{/bootstrap-3.3.7/js/bootstrap.min.js}"></script>
+</head>
+    <body>
+        <div class="col-md-12" >
+            <div style="text-align: center; margin-top: 16 px;">
+
+                <div class="card col-md-6">
+                    <div class="card-header">
+                        Silahkan Login
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div th:if="${param.failed}" class="alert alert-warning col-md-4" role="alert">
+                                <strong>NOTIFIKASI : </strong> Gagal simpan data
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div th:if="${param.success}" class="alert alert-success col-md-4" role="alert">
+                                <strong>NOTIFIKASI : </strong> Berhasil simpan data
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <form th:action="@{/login}" th:method="post">
+                                <div class="row">
+                                    <div class="col-md-4"></div>
+                                    <div class="form-group col-md-4">
+                                        <label for="username">Username</label>
+                                        <input type="text" class="form-control" th:id="username" th:name="username" placeholder="username"
+                                               required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4"></div>
+                                    <div class="form-group col-md-4">
+                                        <label for="username">Password</label>
+                                        <input type="password" class="form-control" th:id="password" th:name="password" placeholder="password"
+                                               required>
+                                    </div>
+                                </div>
+<!--                                <div  class="form-group">
+                                    <input class="form-control" type="text" name="username">
+                                </div>
+                                <div  class="form-group">
+                                    <input class="form-control" type="password" name="password">
+                                </div>-->
+
+                                <button type="submit">Login</button>
+                            </form>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
